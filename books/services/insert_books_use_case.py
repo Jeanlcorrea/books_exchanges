@@ -1,0 +1,31 @@
+from datetime import date
+
+from books.contracts.repositories import IBooksRepository
+from books.exception.exceptions import UserDoesNotExists
+from users.contracts.repositories import IUsersRepository
+
+
+class InsertBooksUseCase:
+
+    def __init__(self, users_repository: IUsersRepository,
+                 books_repository: IBooksRepository):
+        self._users_repository = users_repository
+        self._books_repository = books_repository
+
+    def execute(self,
+                title: str,
+                author: str,
+                published_date: date,
+                genre: str,
+                owner: str):
+        user = self._users_repository.find_user_by_username(username=owner)
+
+        if not user:
+            raise UserDoesNotExists()
+
+        insert_book = self._books_repository.insert_book(title=title,
+                                                         author=author,
+                                                         published_date=published_date,
+                                                         genre=genre,
+                                                         owner=user[0])
+        return insert_book

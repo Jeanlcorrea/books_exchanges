@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     # my apps
     'users',
     'books',
-    'authors',
     'exchanges',
     'notifications',
 ]
