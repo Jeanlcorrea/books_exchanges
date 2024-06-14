@@ -19,3 +19,5 @@ class BookModels(models.Model):
         db_table = 'BOOKS'
         verbose_name = 'BOOK'
         verbose_name_plural = 'BOOKS'
+
+        '''TODO: MUDAR A DATA DE PUBLICAÇÃO PARA INT: EX.: 1994'''

@@ -17,3 +17,7 @@ class IBooksRepository(IRepository):
                     genre: str,
                     owner: UserEntity):
         return NotImplemented()
+
+    @abstractmethod
+    def list_all(self):
+        return NotImplemented()

@@ -18,3 +18,6 @@ class BooksPostgres(IBooksRepository):
                                          genre=genre,
                                          is_available_for_exchange=True,
                                          owner=owner)
+
+    def list_all(self):
+        return self.model.objects.all()
