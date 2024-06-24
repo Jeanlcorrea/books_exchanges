@@ -11,7 +11,7 @@ class InsertBooksUserSerializer(serializers.Serializer):
 class InsertBooksInputDataSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=200)
     author = serializers.CharField(max_length=100)
-    published_date = serializers.DateField()
+    published_date = serializers.IntegerField()
     genre = serializers.ChoiceField(choices=GenreChoices.choices())
     owner = serializers.CharField(max_length=200, help_text='your_username')
 
@@ -19,7 +19,7 @@ class InsertBooksInputDataSerializer(serializers.Serializer):
 class InsertBooksOutputDataSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=200)
     author = serializers.CharField(max_length=100)
-    published_date = serializers.DateField()
+    published_date = serializers.IntegerField()
     genre = serializers.CharField(max_length=30)
     is_available_for_exchange = serializers.BooleanField()
     owner = InsertBooksUserSerializer()
@@ -29,7 +29,7 @@ class ListBooksQuerySerializer(serializers.Serializer):
     id = serializers.CharField(required=False)
     title = serializers.CharField(required=False)
     author = serializers.CharField(required=False)
-    published_date = serializers.DateField(required=False, help_text='Y%-M%-D%')
+    published_date = serializers.IntegerField(required=False, help_text='YEAR')
     genre = serializers.ChoiceField(required=False, choices=GenreChoices.choices())
     is_available_for_exchange = serializers.BooleanField(required=False, help_text='[TRUE, FALSE]', default=True)
     limit = serializers.IntegerField(required=False, default=10)
@@ -52,6 +52,6 @@ class ListBooksOutputSerializer(serializers.Serializer):
     id = serializers.CharField(required=False)
     title = serializers.CharField(max_length=200)
     author = serializers.CharField(max_length=100)
-    published_date = serializers.DateField()
+    published_date = serializers.IntegerField()
     genre = serializers.CharField(max_length=30)
     is_available_for_exchange = serializers.BooleanField()
