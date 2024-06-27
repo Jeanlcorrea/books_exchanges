@@ -17,7 +17,7 @@ class RequestExchangeAPIView(BooksExchangeAPIView):
         responses={status.HTTP_202_ACCEPTED: ''}
     )
     def post(self, request: RestFrameworkRequest, requester, book_id):
-        my_service = 'here'
+        my_service = ''
 
         output = RequestExchangeReturnDict(
             message="Your book exchange request has been received and is pending evaluation.",
