@@ -1,5 +1,7 @@
 from abc import abstractmethod
 from datetime import date
+from typing import Union
+from uuid import UUID
 
 from books.models import BookModels
 from users.entity import UserEntity
@@ -16,8 +18,12 @@ class IBooksRepository(IRepository):
                     published_date: date,
                     genre: str,
                     owner: UserEntity):
-        return NotImplemented()
+        return NotImplementedError()
 
     @abstractmethod
     def list_all(self):
-        return NotImplemented()
+        return NotImplementedError()
+
+    @abstractmethod
+    def find_book_by_id(self, book_id: Union[UUID, str]):
+        return NotImplementedError()

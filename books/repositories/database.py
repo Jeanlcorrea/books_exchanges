@@ -1,4 +1,6 @@
 from datetime import date
+from typing import Union
+from uuid import UUID
 
 from books.contracts.repositories import IBooksRepository
 from users.entity import UserEntity
@@ -21,3 +23,6 @@ class BooksPostgres(IBooksRepository):
 
     def list_all(self):
         return self.model.objects.all()
+
+    def find_book_by_id(self, book_id: Union[UUID, str]):
+        return self.safe_get(id=book_id)
