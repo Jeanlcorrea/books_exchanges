@@ -6,7 +6,7 @@ from users.types import UserAddress
 class UsersPostgres(IUsersRepository):
 
     def find_user_by_username(self, username: str):
-        return self.model.objects.filter(username=username)
+        return self.safe_get(username=username)
 
     def create_user(self,
                     username: str,
