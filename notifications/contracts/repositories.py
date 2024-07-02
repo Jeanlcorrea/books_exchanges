@@ -14,3 +14,7 @@ class INotificationsRepository(IRepository):
                             message: str,
                             is_read: bool = False):
         return NotImplementedError()
+
+    @abstractmethod
+    def find_all_unread_notifications_by_user(self, user: str):
+        return NotImplementedError()
