@@ -11,3 +11,7 @@ class NotificationPostgres(INotificationsRepository):
         return self.model.objects.create(user=user,
                                          message=message,
                                          is_read=is_read)
+
+    def find_all_unread_notifications_by_user(self, user: str):
+        return self.model.objects.filter(is_read=False,
+                                         user=user)
