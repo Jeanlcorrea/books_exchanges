@@ -34,7 +34,7 @@ class InsertBooksUseCase:
 
         self._notifications_repository.create_notification(
             user=user,
-            message=f'Your book | id: {insert_book.id} title: {insert_book.title} | has been added'
+            message=f'Your book | {insert_book.title} | has been added'
         )
 
         return insert_book
