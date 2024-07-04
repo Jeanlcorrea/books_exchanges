@@ -27,7 +27,7 @@ class CreateUserUseCase:
 
         self._notifications_repository.create_notification(
             user=user,
-            message=f'Welcome to Book Exchange APIs {user.username}!'
+            message=f'Welcome to Book Exchange APIs  {user.username}!'
         )
 
         return user
